@@ -1,0 +1,135 @@
+15. ders:
+
+--JOÝNLER- join on
+
+þu ana kadar hep bir tablodan veri cektik ...
+
+
+mesela:
+
+selecyt * from orders..............
+
+----
+
+
+öyle zamanlar gelirki 2 veya daha fazla tablodan veri cekmek gerekebilir.
+
+
+***
+iþte bu gibi durumlarda join komutunu kullanýyoruz....
+
+yani kýsacasý 
+
+-- bazen  2 yada daha fazla tablodan veri cekmemiz gerekebilir...
+ 
+yani joinler tablolarý birleiþtirmeye yarýyor...
+
+
+birleþtirmelerde en önemli þey  diagram kullanmak.
+
+sql in en zor konularýndandýr..
+
+----------
+örnek:
+
+
+sipariþer ve sipariþ tablolarýný(detaylarýný )birleþtir.
+
+
+
+acýklama: order:sipariþer,orderdetail:sipariþ detaylarý.
+
+*önce diagrmadan ikisi arasýndaki cizgiye týklýyoruz.
+
+* daha sonra tables and colums kýsmýna bakalým.
+burdan orders:OrderID   [Order Details]=orderýd buluyoruz.(birleþtirmeler orderýd üzerinden kurulur).
+* koda geciyoruz.
+
+select * from Orders join [Order Details] on Orders.OrderID=[Order Details].OrderID
+
+----------------
+
+
+örnek:
+
+
+ürünler ile kategorileri birleþtir.(tablolarý)
+
+
+
+
+
+cevap:
+
+select * from Categories join Products on Categories.CategoryID=Products.CategoryID
+
+acýklama:
+tables and colums kýsmýna bakalým
+products
+
+categoriýd
+
+categoris
+
+categoriýd
+
+secildi.
+
+
+
+----------
+örnek:
+
+
+kategorilerdeki ürünlerin sayýsýný gösteriniz..
+
+
+select Categories.CategoryName,COUNT(*) as ürünsayýsý from  Categories join Products on Categories.CategoryID=Products.CategoryID group by Categories.CategoryName
+
+
+
+
+acýklama :
+aslýnda burda iki tablodan yararlanýlýyor.
+
+tablo adý ve sütün adýný beraber yazdýr.
+Categories.CategoryName
+group by Categories.CategoryName
+ile gruplama yapmalýyýz.
+
+
+select * from Categories
+select * from products
+aç
+
+örnek:
+hundai:kategori(model)
+acsees,i3 :ürün(alt modelim)
+
+
+yani örnek bizden hundai kategorisindeki ürünleri say
+ 15 tanedir  gibi.
+
+içecek(kategori)
+
+süt
+cola
+fanta(ürün)
+
+gibi
+
+yani
+categori ýd 1
+
+alt ürün categori ýd 1 ler gruplanýyor.
+kaç tane oldugu isteniyor
+
+1 den þu kadar ürün var
+
+2 den þu kadar ürün var
+
+gibi
+
+***
+
+ders sonu

@@ -1,0 +1,32 @@
+2.ders:
+
+ bu ders iliþkiler incelenecektir.
+
+3 ceþit iliþki var.
+
+a.bire bir iliþki 
+b.bire sonsuz iliþki
+c.sonsuza sonsuz iliþki.
+
+
+a)bire bir iliþkide: tablolar oluþturup bunlarý 
+diagram ile birleþtirlmesi ve anahtar oluþturulmasý (bire bir iliþki meydana getirir).
+
+**örnek:ögrenci ile tc kimlik numarasý
+(bir insanýn 1 tc'si olur ksýaca)
+
+b)bire sonsuz iliþki:
+iki tablo oluþturup diagram olusturuk bire bir ve bire sonsuz iliþki ile olacak sekilde hazýrladýk.(örnege bak)
+
+
+**örnek:araba ve modelleri
+
+(bir arabanýn bir cok modeli olabilir.ama bir modelin bir ana markasý olabilir.)
+
+c)sonsuza sonsuz iliþki: 3 tane ayrý tablo oluþturup bunlarý diagram ile birleþtirdik yani
+(iki tabloya ek bir ýd tablosuoluþturulmalýdýr.)
+
+
+örnek :film  oyuncu iliþkisi
+
+bir insan bircok oyunda oynayabilir bir filimde bircok oyuncu oynayabilir.kimse kimseye baglý degil yani... 

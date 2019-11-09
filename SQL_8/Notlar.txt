@@ -1,0 +1,61 @@
+8.ders:
+
+*like komutu : belirli bir þablona göre verilerin filtrelenmesi için kullanýlýr.
+
+*like 'nin özel karekteri % karekteridir.
+
+*like ,where kriter yapýsý ile beraber kullanýlýr.
+
+* where her zaman like' nin sagýnda olur.
+
+customers tablosunu gözümüzün önüne getirelim.
+
+costumers(müþteriler)
+
+örnek:
+
+mesela bu tablodaki company name de sadece ismi k ile baþlayanlarý getir.
+
+cözüm:
+select *from Customers where CompanyName like'k%'
+
+
+%
+
+yani kriter içinde kriter gibi bir þey yapyoruz .
+
+% ,demektir: sonrasý -öncesi beni baglamaz.
+
+yani ilk harfi a olsunda digerleri ne olursa olsun önemli degil.(a%)
+
+diger  þekilde (%a) dersek a dan öncesi bizi baglamaz sadece son harfi a olanlarý getirir.
+ 
+
+örnek :customers tablosundaki company name ismi k harfi ile bitenler 
+
+cözüm:
+
+select *from Customers where CompanyName like '%k'
+
+
+acýklama:burada örnekte sonu k olsun da ondan önceki harfler önemli degil demektir
+
+örnek:
+
+costumers tablosunda þirker isminde içinde   k harfi olanlarý göster:
+
+ cözüm:
+select * from Customers where CompanyName like '%k%' 
+
+
+örnek: costumers tablosunda þirker isminde içinde ilk harfi belirsiz ,ikinci harfi e olanlarý göster.
+
+acýklama: belirsiz demek _(alttre demektir).
+ 
+
+cözüm:select *from Customers where CompanyName like '_e%'
+
+
+***ders sonu
+
+

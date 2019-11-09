@@ -1,0 +1,73 @@
+7.ders:
+
+6.dersin devamý:
+
+örnekler devam
+
+
+örnek:gönderilmemiþ sipariþlerin listesi
+
+
+select *from Orders where ShippedDate is null
+
+acýklama :kriter gönderilmemiþ
+tablo sipariþler
+shipped:gönderilmiþ
+ship:göndermek
+
+
+***arasýnda ifadesi nedir???
+
+örnek: 
+stokta 10 ile 30 arasýndaki bulunan ürünlerin listesini bulun?
+
+select *from Products where UnitsInStock>10 and UnitsInStock<30
+
+yada; iki defa unitsin stock kullanmaya gerek yok
+
+þöylede yazabiliriz:
+
+select* from Products where UnitsInStock between 10 and 30
+
+
+örnek:
+ þirket ismi  k ile o arasýndakileri(baþ harfleri olarak) müþterileri listeleyiniz.
+
+select * from Customers where CompanyName between 'k' and 'o'
+
+
+
+*** veya ifadesi nedir???
+
+örnek:kategori idsi 3,5 8 olan ürünleri gösteriniz.
+
+select *from Products where CategoryID=3 or CategoryID=5 or CategoryID=8
+
+acýklama: kriterlerimiz nedir ?
+
+kategori idsi 3,5 8 
+
+
+diyelimki  kategori idsi 3,5 8 ,10,63 gibi uzun ..
+ozaman  daha pratik olarak
+
+yada;
+
+select*from Products where CategoryID in(3,5,8,10)
+
+in burada veya anlamýnda kullanýlmýþ oluyor.
+
+
+
+örnek: 2,3,4 nolu çalýþanlarýn 1997 yýlýnda almýþ olduklarý sipariþler.
+
+
+select*from Orders where EmployeeID in(2,3,4) and YEAR(OrderDate)=1997
+
+acýklama:kriterler: 2,3,4 nolu çalýþanlar ve  1997 yýlý
+
+
+not:buradaki where yapýsý c# taki if yapýsýna benziyor.burada cümleleri süzme iþini ögrenirsek  where ile iþimiz kolaylaþýr. 
+
+
+***ders sonu.

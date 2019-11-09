@@ -1,0 +1,70 @@
+12. ders:
+
+bu derste case ve order by komutlarýný görecegiz..
+
+***
+case:
+
+okunan kolondaki bilgiye göre farklý degerler ortaya cýkarmayý saglayan yapýdýr..
+
+yani tablonun içindeki birþey var biz onu tamamen degiþtirmeyi istiyoruz.
+
+örnegin :
+select *from Employees
+
+acalým
+   
+
+*ekranda firstname,lastname yazsýn ve ünvanlarý türkçe olarak degiþsin...
+
+
+select FirstName,LastName,TitleOfCourtesy ,Unvan=CASE TitleOfCourtesy
+when'Ms.' THEN 'bayan'
+when 'Dr.' THEN 'doktor'
+when 'Mr.' THEN 'bay'
+else 'sayýn'
+end
+from Employees
+
+
+tabloya bakarak sonucu gözleyin.
+
+--------------------------------
+***
+order by :
+sýrlamak 
+
+küçükten büyüge sýralama için asc(varsayýlan).
+
+büyükten kücüge sýrlamak için desc.
+
+
+
+örnegin :
+
+
+
+select * from Products
+
+calýþtýr. 
+
+* ürün fiyatlarýný sýrala.
+
+
+->select * from Products order by UnitPrice
+
+(kücükten büyüge sýraladý.)
+
+->select * from Products order by UnitPrice desc
+
+(ise büyükten kücüge sýraladý)
+asc yazsaydýk gene küçükten büyüge sýrlayacaktý...
+
+[önemli ip ucu : mavi yazan kelilmeler genellikle kodu gösterir.]
+
+
+***ders sonu:
+
+
+
+

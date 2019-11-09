@@ -1,0 +1,56 @@
+4.ders:
+
+*kodlama:
+
+
+yorum satýrý
+c# için
+
+// yorum satýrý
+/*
+
+cok boyutlu ise(yorum birkaç satýr sürerse
+
+*/
+
+ancak SQL  dilinde yorum --(iki tire koyarýz sadece).
+
+bilgiler:
+*sql de ; ifadesi sona getirilmez  c/c++ gibi
+
+
+*select -> secme sorgusu(veri sorgulamak ve görüntülemek için kullanýlýr.)
+--''ifadesi car olarak kulanýlýr.karekter anlamýnda
+
+
+*column (kolon)isimlendirilmesi as ile yapýlýr.
+
+
+*selelct sayý degerleri direk yazýlýr 
+
+tablo sorgulama kýsmý bu kadar.
+
+
+select'in tablo sorgulama formulu:
+
+select(kolon adlarý) from (tablo adi)
+
+
+* (ifadesi)-> girdigimiz tablodaki  tüm bilgileri(sutunlarý) gösterir.
+
+
+*eger tüm bilgilerin degilde belli bir kýsmý istersek;
+
+select x from tablo 
+
+örnek:
+select firstname from emplooyer
+
+sadece belli numarayý istersem yani(2.) gibi 
+ozaman where yapýsý kullanýlýr. 
+
+diger derse bakýn.
+
+
+
+

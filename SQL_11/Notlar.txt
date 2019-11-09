@@ -1,0 +1,87 @@
+11.ders:
+
+*10 dersin devamý:
+
+Max ve Min :
+Maksimum maximumum alýr ,minumum minumum alýr.
+
+
+örnek:
+(ürünler tablosundaki) en pahalý ürün ?
+
+cevap:
+
+select* from Products 
+tablosunu acalým.birim fiyata kolonundan 
+
+select MAX(UnitPrice) from Products
+
+263 gibi bir deger döndürür.
+
+max degerini  min yapsak en düþük ürünü bulmuþ oluruz. 
+
+
+select MÝN(UnitPrice) from Products
+
+
+ÖRNEK:
+
+categori idis 3 olan kaç ceþit ürünümüz vardýr?
+
+
+select COUNT(*) from Products where CategoryID=3
+
+
+
+
+
+acýklama:kriter oalarak categori idis 3,
+ürün kac ceþit deniyor demekki sayý istiyor(count) ,tablo istemiyor.
+
+
+örnek:
+
+2 nolu çalýþanýmýn almýþ oldugu sipariþ sayýsý nedir?
+
+
+
+cevap:
+
+select * from Orders
+
+
+bakalým.
+
+select COUNT(*) from Orders where EmployeeID=2
+
+sonucta 96 döner. 
+
+**kendimiz oluþturarak gidelim...
+
+*agreegatefonksiyonlar adýnda bir database ve bir tablo(dersnotlarý) oluþturduk.
+
+
+bununla ilgili calýþmalar yaptýk.agreegate fonksiyonlarý inceledik üzereinde..
+
+select * from dersnotlarý
+
+select count(*)from dersnotlarý
+
+select SUM(vize) from dersnotlarý
+
+*eger noclomn yazmasýný istemiyorsak:::
+
+select SUM(vize) as vizetoplamý from dersnotlarý
+
+select SUM(vize) as vizetoplamý, sum(final) as finaltolamý from dersnotlarý
+
+
+select AVG(vize) as vizeort,AVG(final) as finalort from dersnotlarý
+
+select MAX(final),MAX(vize),MIN(final),MIN(vize) from dersnotlarý
+
+ders sonu:
+
+
+
+

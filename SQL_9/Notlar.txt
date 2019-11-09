@@ -1,0 +1,33 @@
+9.ders:
+like ile ilgili örneklere devam ediyoruz.8.dersin devamý:
+
+
+
+örnekler:
+
+ costumers tablosunda þirket isim olarak ilk harfi  belirsiz olan ,ikinci harfi e olan ,son harfi s olanlarý getir. 
+
+
+cözüm:
+select *from Customers where CompanyName like'_e%s'
+
+örnek:costumers tablosunda þirket isimi ilk harfi belirsiz ,ikinci harfi e olan , son harfide s olmayaný  getir.
+
+acýklama :[^x]:degillerde.
+
+cözüm:select *from Customers where CompanyName like '_e%[^s]'
+
+
+örnek:costumers tablosunda þirket isiminin 
+ilk harfi l ve r olan þirketleri göster.
+
+
+cözüm:select * from Customers where CompanyName like'[lr]%'
+
+
+örnek: ostumers tablosunda þirket isimini ilk harfi l ve r arasýndaki olanlarý göster.
+
+
+cözüm:select * from Customers where CompanyName like'[l-r]%'
+
+***ders sonu

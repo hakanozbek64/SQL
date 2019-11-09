@@ -1,0 +1,122 @@
+13.ders:
+
+
+group by :
+* sorgularýmýzý gruplamaya yardýmcý olur.
+*where den sonra yazýlýr.( order by gibi)
+
+
+örnegin:
+
+
+
+1 nolu çalýþanýn almýþ oldugu sipariþ sayýsý?
+
+
+select COUNT(*) from Orders  where EmployeeID=1
+
+302
+--------
+örnegin 
+
+
+1 nolu çalýþanýn ve 2 nolu calýþanýn almýþ oldugu sipariþ sayýsý?
+select COUNT(*) from Orders  where EmployeeID=1 or EmployeeID=2 
+219
+
+
+-----
+örnek:
+
+
+her calýþýþanýn toplamda almýþ oldugu sipariþ sayýsý nedir?
+
+select COUNT(*) from Orders group by EmployeeID
+
+þeklinde olur
+
+
+ancak EmployeeID'si hangisi hangisinin oldugunu  görmek istersek.
+
+
+select EmployeeID,COUNT(*) from Orders group by EmployeeID
+
+
+þeklinde ayrý ayrý görebiliriz.
+
+
+-----
+örnek:
+kargo firmalarý kaç tane sipariþ almýþtýr..
+
+
+cevap:
+select ShipVia,COUNT(*)from Orders group by ShipVia
+
+
+acýklama:shipvia(tasýma þirketi)
+
+
+örnek:
+
+
+hangi kategoride kaç ürün oldugunu gösteriniz..
+
+
+
+select CategoryID ,count(*)from Products group by CategoryID
+--------
+örnek:
+
+hangi ülkeye ne kadar satýþ yapýlmýþ.
+
+
+select ShipCountry,COUNT(*) from Orders group by ShipCountry
+
+
+
+
+**satýþa: sipariþten bakýlacaktýr.
+
+**shipcountry :göderilen ülke alýnacaktýr.
+
+
+
+------------
+
+
+örnek: 
+
+nakliye þirketlerine toplam ne kadar ödenmiþtir.
+
+
+
+select ShipVia,SUM(Freight) from orders group by ShipVia
+
+
+
+**freight:taþýma ücreti
+
+**shipvia : nakliye þirketi yada kargo firmasý
+
+----------
+örnek:
+
+müþterilere 1997 yýlýnda kaç sipariþ verilmiþtir.
+
+
+select CustomerID,COUNT(*)from Orders group by CustomerID where year(OrderDate)  YANLIÞ X
+
+
+**GROUP BY EN SONA YAZILIR(düzeltirsek)
+
+
+select CustomerID,COUNT(*)from Orders  where year(OrderDate)=1997 group by CustomerID  DOGRUSU
+
+
+------
+ders sonu
+
+***14.derste devam ediyor.
+devam
+---------------------------------------------

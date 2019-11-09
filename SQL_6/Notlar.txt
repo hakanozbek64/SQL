@@ -1,0 +1,69 @@
+6.ders:
+
+*5.dersin devamý :örnekler
+
+
+örnek:
+kategori id'si 2 olan ve 3 nolu tedarikçiden gelen ürününlerin adýný gösteriniz.
+
+select * from Products where CategoryID=2 and SupplierID=3
+
+
+acýklama:iki tane kriter var, kategori id'si 2 olan ve 3 nolu olan .
+ tedarikçi:supplier
+
+iki kriteri and ile kullanarak gercekleþtirdik.
+
+örnek :londrada yaþayan calýþanlar
+
+
+select * from Employees where City='london'
+
+
+örnek:1997 yýlýnýn sipariþlerini gösteriniz.
+
+select* from Orders where YEAR(OrderDate)=1997
+
+
+acýklama ,sipariþler:orders
+eger ay bulmak istersek þöyle düzenleriz:
+
+select* from Orders where MONTH(OrderDate)=1
+
+
+
+örnek:nancy isimli calýþanýn adresi nedir.
+
+select* from Employees where FirstName='nancy'
+
+girerek baktýgýmýzda adresin kolonda oldugunu görürüz ve düzenlersek
+
+
+select Address from Employees where  FirstName='nancy'
+
+
+
+
+müþteri tablomuzu inceleyelim:
+costumers:müþteriler
+
+
+ 
+select *from Customers
+
+
+region (bölge ) kýsmýnda bazýlarýnda null iþareti var yani boþ demek 
+
+* null' larý nasýl seceriz.
+
+null için is null,
+null olamayanlar için is not null diyoruz.
+
+örnek :müþteri tablosundaki bölge kýsmýndan null olanlarý bul.
+
+select *from Customers where Region is null
+
+örnek müþteri tablosundaki fax kýsmýndan null omayanlarý  bul.
+
+select *from Customers where fax is not null
+

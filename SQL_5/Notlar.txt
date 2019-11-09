@@ -1,0 +1,52 @@
+5.ders:
+
+*where yapýsý (kriter)
+
+
+*eþitlil operatoru c#'ta == idi
+
+
+sql de eþeitik operarörü  = kullanýlýr.
+
+büyük eþit küçükeþit  >=,<= 
+
+büyük ,küçük >,<  
+
+eþit degildir( 2 adet) != 
+
+eþit degidir <> kullanýlýr
+
+
+*where ile  .. nolu satýrlarý gösterilir.
+
+where' in formulu :::
+
+select kolon adý from tabloadý where kriter
+
+örnek:
+2 nolu çalýþanýn almiþ oldugu siparileri gösteriniz.
+
+select *from orders where employeesID=2
+
+employees(calýþanlar)
+siparileri(orders)
+örnek:
+birim fiyatý 50tl den az olan ürünlerin adlarýný görüntüleyiniz.
+
+
+select*from Products where UnitPrice<50
+
+***birim fiyatýn 50tl den az olmasý kriterdir.ürünler(products),birim fiyat (unit pay) anlamýndadýr.
+
+alfký müþteri ýdli müþterini siparislerini gösteriniz.
+
+
+select*from Orders where CustomerID='ALFKI'
+
+
+ALFKI karekter oldugu için týrmakla gösterildi
+
+
+örnek :stokta 10 taneden az olan ürünleri görüntüleyiniz.
+
+select *from Products where UnitsInStock<10

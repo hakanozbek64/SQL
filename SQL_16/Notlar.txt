@@ -1,0 +1,154 @@
+16.ders:
+
+
+örnekler (devam)
+
+calýþanlarýn aldýgý sipariþerin sayýsýnýný gösteriniz.
+
+acýklama:
+
+select *from Employees
+
+select *from Orders
+
+
+diagramdan bunlarýn 
+tables and colums specification kýsmýndan 
+
+bunlarýn 
+
+order
+employeeýd
+eployes
+emplayesýd 
+oldugunu görürüz.
+
+
+cevap:
+
+
+select * from Employees join Orders on Employees.EmployeeID=Orders.EmployeeID
+
+
+DÜZENLERSEK
+
+select Employees.FirstName,COUNT(*) from Employees join Orders on Employees.EmployeeID=Orders.EmployeeID group by Employees.FirstName
+
+firstname
+
+andrew 96
+anne   43
+........
+þeklinde 830 tane toplamý olur bu sipariþlerin
+
+---------------------------------------
+
+
+
+örnek:
+
+
+nakliye þirketlerine ne kadar ödenecegini listeleyiniz.
+
+
+acýklama:
+
+nakliyeci:shipper
+
+ne kadar ödenecegini nereden bulacagýz ?
+
+sipariþlerden !!!(orders)
+
+
+cünki freigh(tasýma ücreti)  burada var.
+
+dolayýsý ile tablolarý birleþtirme var.
+orders ile shipper tablolarý birleþecek.
+
+diagrama bakýp 
+
+diagramdan bunlarýn 
+tables and colums specification kýsmýndan (týkla)
+örnek
+:
+on orders.xxxxxshipper.xxxx
+
+x ksýmlarý tables and coloms tan bluyoruz.
+
+
+select * from Orders join Shippers on Orders.ShipVia=Shippers.ShipperID
+
+kod ile iki tabloyu birleþtirdik.devam edersek 
+
+
+nakliye þirketlerine/ ne kadar ödenecek/ onu istiyor?
+Shippers.CompanyName/sum(Freight)/
+
+cevap:
+select  Shippers.CompanyName,sum(Freight)from Orders join Shippers on Orders.ShipVia=Shippers.ShipperID group by Shippers.CompanyName
+
+
+---------------------------------------------
+
+örnek:
+
+kategorilerden yapýlan satýþ sayýsýný cýkarýnýz..
+
+
+acýklama:
+
+burada kategoriler var birde satýþ sayýsý var..
+
+satýþ sayýsýný sipariþ tablosundan bulacagýz.
+
+sipariþ  ve kategori tablolarýný ilgilendiriyor.
+categorise ve orders tablolarý
+
+
+ancak dikkat edilirse diagram tablosunda  tablolar birbirinden uzakta...
+
+
+bunu yapabilnek için pruducs ve orderdetail üzerinden gitmemiz gerekiyor dolayýsý ile bunlarý kodda belirticegiz.
+
+
+
+4 tabloyu birleþtirmiþ olduk.(ikiden cok tablonun nasýl birleþtigini de görmiþ olduk.)
+
+cevap:
+
+
+select* from Categories join Products on Categories.CategoryID=Products.CategoryID join [Order Details] on Products.ProductID=[Order Details].ProductID join Orders on [Order Details].OrderID=Orders.OrderID
+
+-----------------------------------------------örnek:
+müþterilerim hangi ürünleri almýþlar?
+
+acýklama:
+
+müþterim(costumers)
+
+ürünler(products)
+
+
+diagram tablomuza bakalým 
+çünkü bunlarý ve aralarýndaki tablolarý birleþtirecegiz...
+  bunlarýn ortak bir özelligi yok cünkü 
+müþteriler ve ürünleri farklý yerlerde.
+
+müþterilerimi þirket adý(company name) ile belirttik.
+ürünleri ise ürüün adý(product name) ile belirttik.
+cevap:
+
+select * from Customers join Orders on Customers.CustomerID=Orders.CustomerID join [Order Details] on Orders.OrderID=[Order Details].OrderID join Products on [Order Details].ProductID=Products.ProductID
+
+
+ancak hangi ürünleri almýþ onlara bakalým.
+
+cevap:
+select  Customers.CompanyName,Products.ProductName from Customers join Orders on Customers.CustomerID=Orders.CustomerID join [Order Details] on Orders.OrderID=[Order Details].OrderID join Products on [Order Details].ProductID=Products.ProductID
+-------------------------------
+ders sonu:
+
+
+
+
+

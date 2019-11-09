@@ -1,0 +1,103 @@
+10. ders:
+
+***bu dersimizde agragete fonksiyonlarý inceliyecegiz...
+
+*sorgu sonucuna bakarak iþlem yapan fonksiyonlardýr.
+
+* select'ten hemen sonra yazýlýrlar.
+
+bunlar:
+=> count-sum- awg-min-max 
+bunlarý teker teker inceleyelim.
+
+*count:satýrlarý sayar.
+*eger sütün ismi verirsek null deger olanlarý saymaz.
+
+örnek:
+kaç çeþit ürünüm vardýr.
+
+ÖNCE 
+
+select *from products bakalým.
+
+SONRA
+cevap:
+select COUNT(*) from Products
+
+77 tane ürün var .
+
+örnek : kaç tane sipariþ almýþým.
+
+tabloyu gözümüzün önüne getirelim.
+
+select * from Orders
+
+select COUNT(OrderID) from Orders
+
+yada 
+
+select COUNT(*) from Orders
+
+acýklama:
+COUNT(OrderID) kullanmamýzýn nedeni null olan degerlerin gösterilmemesi.
+
+------------
+örnek: kaç siparis gitmemiþ.
+
+cevap
+
+
+acýklama: kaç tanesi shipped date(gönderilme tarihi) null dur diyor  yani  gönderilmemiþ.
+
+
+CEVAP:
+
+select COUNT(*)-COUNT(ShippedDate) from Orders
+
+------------------------------------------------
+***SUM:toplamý gösterir.
+* hücre içindeki degerlere müdahale ediyor ve onlarý topluyor.
+------------
+örnek: stoklati ürünlerin toplamý kaçtýr.
+
+
+cevap:
+select  SUM(UnitsInStock) from Products
+
+
+toplamý 3139  .
+
+acýklama:
+stok:pruduct 
+
+ürün burada; unitsinstok oalarak kabul edecegiz.
+----------
+örnek:
+
+ürünlerin birim fiyatý toplamý kaçtýr.
+
+cevap:
+
+gözüüzün önüne gelsin:
+
+select * from Products
+yani 
+select SUM(UnitPrice) from Products
+toplam
+222,71 degerini buluruz.
+------------------------------------------------
+***avg ortalama alýr.
+
+
+örnek:
+
+ürün tablosundaki ürünlerin fiyatlarýnýn ortalamasý kaçtýr?
+
+cevap:
+
+select Avg(UnitPrice) from Products
+
+
+ders 11.derste devam ediyor.
+ders sonu:
+

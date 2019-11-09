@@ -1,0 +1,32 @@
+1.ders
+
+
+* sql server 2008 r2 kurulumu.(sql server manegement studio)
+
+*microsoft ücretsiz veri tabaný nortwind databese den yararlanma.
+
+*data base kýsmýna nortwind in eklenmesi.
+
+-> instnwnd dosyasýný notpad ile ac
+
+->new query sayfasýna bunu kopyala ve f5 ile kaydet.
+
+*yeni data base oluþturma(benim data base adýnda)
+
+sa
+
+eklenir.
+
+*data basede tablo oluþturma.
+new table ile
+
+örnege bak.
+
+edit top200 ruse kýsmý incelendi.(bilgi girilebilecek bölüm)
+
+*design kýsmýndan acýlýr(kolon ve data tipleri eklenir.
+
+
+
+
+

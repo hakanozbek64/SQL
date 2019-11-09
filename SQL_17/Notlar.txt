@@ -1,0 +1,184 @@
+17. ders:
+
+
+yeni bir komut:::
+
+-- distinct:benzer komutlarý yok ediyor.
+--selecten hemen sonra kullanýlýr.
+
+
+yukarýdaki örnekte:(16.dersin son örnegi)
+select Customers.CompanyName,Products.ProductName from Customers join Orders on Customers.CustomerID=Orders.CustomerID join [Order Details] on Orders.OrderID=[Order Details].OrderID join Products on [Order Details].ProductID=Products.ProductID
+ 
+
+yerine ek olarak;
+
+
+yeni bir komut:::
+
+-- distinct:benzer komutlarý yok ediyor.
+
+aþagýdaki örnekte:
+select  Customers.CompanyName,Products.ProductName from Customers join Orders on Customers.CustomerID=Orders.CustomerID join [Order Details] on Orders.OrderID=[Order Details].OrderID join Products on [Order Details].ProductID=Products.ProductID
+
+
+
+örnegine  ek olarak distinct yazarsak (üretici adýnda ayný olanlar tek bire iniyor dolayýsý ile saysýsal olarak colondaki satýr sayýlarý azalýyor.)
+
+aþagýdaki örnegi tekrar inceleyin.(calýþtýrýn)
+
+select distinct Customers.CompanyName,Products.ProductName from Customers join Orders on Customers.CustomerID=Orders.CustomerID join [Order Details] on Orders.OrderID=[Order Details].OrderID join Products on [Order Details].ProductID=Products.ProductID
+
+
+---------------------------------------
+
+
+
+örnek:
+
+ürünlerimden ne kadar para kazanmýþým.
+
+
+
+acýklama: 
+ürünler(products) zaten 
+
+ne kadar para kazanmýþým nereden bakýcam?
+
+muhtemelen order detail de olabilir.bakarsak.
+
+unitprice(birim fiyat)
+
+olacak.
+
+yani :
+
+order detail ile products tablolarýný birleþtirecegim...
+
+
+tabikide tablo and colomn kýsmýna bakýcaz.
+
+
+
+kazanç: 
+
+order *details tablosundan,
+
+UnitPrice*Quantity caprýlarak bulunur.
+
+product adýnýda gruplandýrma yaptýk.
+
+calýstýrýp bakýn.
+cözüm1
+
+
+select Products.ProductName,SUM([Order Details].UnitPrice*Quantity) from Products join [Order Details] on Products.ProductID=[Order Details].ProductID group by Products.ProductName
+
+eger istersek no clomn name ismini degiþtirebiliriz.
+
+
+
+ozaman:
+cözüm2
+
+
+
+select Products.ProductName,SUM([Order Details].UnitPrice*Quantity) as kazanc from Products join [Order Details] on Products.ProductID=[Order Details].ProductID group by Products.ProductName
+
+istersek bunu sýralayabiliriz neyi ?
+kazanç olsun ...
+
+select Products.ProductName,SUM([Order Details].UnitPrice*Quantity) as kazanc from Products join [Order Details] on Products.ProductID=[Order Details].ProductID group by Products.ProductName order by kazanc
+
+
+
+gibi
+--------------------------------------
+
+
+örnek:
+
+
+en degerli müþterimi bulalým??
+
+
+acýklama:
+en degerli müþteri demek bana en cok para kazandýran müþteri demektir.
+
+
+para kazandýran nedir?
+
+en cok para kazandýran
+
+order detail den bakýlacak.
+
+ 
+
+ costomer 
+orders
+order detail tablolarýný birleþtirelim.
+tabikide tablo and colomn kýsmýna bakýcaz
+
+
+
+kodu yaz
+
+kazanc:
+
+UnitPrice*Quantity
+hangi kolonda 
+onu ekliyoruz.
+[Order Details].UnitPrice*Quantity
+
+
+
+tablolarý birleþtirdik:::
+
+select * from Customers join Orders on Customers.CustomerID=Orders.CustomerID join [Order Details] on Orders.OrderID=[Order Details].OrderID
+
+ekleme yapýyoruz.
+
+burada gruplandýrmayý costumers dan  company name sectik (secmeli)
+
+
+select Customers.CompanyName,SUM([Order Details].UnitPrice*Quantity) from Customers join Orders on Customers.CustomerID=Orders.CustomerID join [Order Details] on Orders.OrderID=[Order Details].OrderID group by Customers.CompanyName
+
+ekleme:
+
+ no clomn kýsmýný as kazanc ekleyerek düzenledik ve sýralýyoruz kazancý azdan çaka dogru.
+
+sonuc olarak:
+
+cevap:
+
+select Customers.CompanyName,SUM([Order Details].UnitPrice*Quantity) as kazanc from Customers join Orders on Customers.CustomerID=Orders.CustomerID join [Order Details] on Orders.OrderID=[Order Details].OrderID group by Customers.CompanyName order by kazanc desc
+
+
+
+burada 89 tane müþteri bulunuyor
+
+
+eger ilk üç tanesini istersek ne yapabiliriz??
+
+iþte ozaman top kullanýrýz. 
+
+---->>>>>
+
+---------------------------------------------
+
+--top :selecten hemen sonra yazlýlýr.
+
+yukarýdaki örnekte ilk üçü secer.
+
+
+-----------------------
+select top 3 Customers.CompanyName,SUM([Order Details].UnitPrice*Quantity) as kazanc from Customers join Orders on Customers.CustomerID=Orders.CustomerID join [Order Details] on Orders.OrderID=[Order Details].OrderID group by Customers.CompanyName order by kazanc desc
+
+burada tablodaki colonlarýn ilk üçünü secmiþtir.calýþtýra bakýn.
+----------------------------------------------
+***
+ders sonu
+
+
+
+

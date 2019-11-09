@@ -1,0 +1,119 @@
+14.ders:
+
+örnek:devam 
+
+
+kategorilerdeki stok miktarlarý ?
+
+
+acýklama : stok miktarlarýna nerden bakýyoruz ürünlerden,kategori olarak kategoriýd seciyoruz.
+1. þu kadar 2. þu kadar þeklinde ayrýrarak inceliyecegiz.
+  
+
+select CategoryID,COUNT(*) from Products group by CategoryID
+
+cevap:
+select CategoryID,COUNT(UnitsInStock) from Products group by CategoryID
+
+
+-------------------------------------
+
+
+örnek:
+
+þipariþlerden ne kadar kazanýlmýþtýr......
+
+
+
+acýklama: sipariþler(order ) ancak burada order detail'i kullanalým .quantity(miktar).orderýd ye göre gruplayalým.
+
+kazanc=degeri*miktarý
+benefit=unitprice*quarity
+
+
+cevap:
+select OrderID,SUM(UnitPrice*Quantity) from [Order Details] group by OrderID
+
+
+büyükten küçüge sýralarsak :
+
+select OrderID,SUM(UnitPrice*Quantity) from [Order Details] group by OrderID order by SUM(UnitPrice*Quantity) desc
+
+ancak biz bunu bu kadar uzun yazmadanda oluþturabiliriz:::
+isim veriyorduk hatýrlardak sum kýsmýnada isim verelim örnegin ,hesap dersek
+yani ozaman:
+
+
+select OrderID,SUM(UnitPrice*Quantity)as hesap from [Order Details] group by OrderID order by hesap desc
+--------------
+
+
+örnek:
+
+calýþanlarýn kacý bay, kacý bayan,kacý doktor???
+
+
+
+cevap:
+
+
+select TitleOfCourtesy,COUNT(*) from Employees group by TitleOfCourtesy
+
+
+------------------------------------------------
+
+
+
+þu ana kadar gördüklerimiz:::::::::::::::
+
+
+
+
+*
+
+selet kolonadi from tabloadi
+
+*
+where kriteri:
+
+select * from orders where categoriýd=3 gibi
+
+*
+like:
+select * from orders where like'_r%'
+% umrumda degil 
+*
+
+agreegate fonksiyonlar:
+
+count 
+
+
+sum 
+avg(ortlama)
+max
+min 
+yazým sekli selectten hemen sonra;
+select min(untiprice).....
+
+select count(*)from order
+tüm sipariþteki sutun sayýsýdýr.
+gibi
+*
+case yapýsý:durum
+
+when'dr.' then 'doktor'
+
+
+*
+order by :sýrala
+ asc- desc(büyükten kücüge)
+
+select *from pruducts order by unitprice
+
+gibi
+* group by : sorgularý gruplamaya yardýmcý olur...
+ whereden sonra yazýlýr.
+
+
+***ders  sonu
